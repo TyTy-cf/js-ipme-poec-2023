@@ -1,5 +1,5 @@
 
-## Exos - 07/10/2021
+## Exos - 01/24/2023
 
 ### 1.
 Faire une fonction qui prend en paramètre un âge, et doit renvoyer l'année de naissance en fonction de l'âge.
@@ -20,9 +20,8 @@ Faire une fonction qui prend en paramètre une température d’un volume d’ea
 
 
 ### 5.
-On souhaite stocker les notes d'étudiants, vous utiliserez un tableau associatif pour ça
 
-Les données doivent être envoyées sous forme de tableau de cette forme :
+On souhaite stocker les notes d'étudiants, les données doivent être envoyées sous forme de tableau de cette forme :
 ```js
 [
     [
@@ -39,6 +38,8 @@ Les données doivent être envoyées sous forme de tableau de cette forme :
     ],
 ];
 ```
+
+Parcourir le tableau et afficher le nom de l'étudiant avec sa moyenne.
 
 ### 6.
 Faire une fonction qui prend 2 arguments en paramètres : un prix et un pourcentage.
