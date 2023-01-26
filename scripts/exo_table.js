@@ -44,6 +44,7 @@ function initCheckBoxes(globalSelector = 'all') {
             if (otherChekBoxes) {
                 for (const otherChekBox of otherChekBoxes) {
                     otherChekBox.checked = checkBoxAll.checked;
+                    // otherChekBox.dispatchEvent(new Event('change')); => déclenche un évènement à la main
                 }
             }
         });

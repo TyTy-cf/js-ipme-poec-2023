@@ -4,3 +4,15 @@
     color: white;
 }
 
+.black {
+    background-color: #626262;
+}
+
+.white {
+    background-color: #FFF;
+}
+
+.col-125 {
+    flex: 0 0 auto;
+    width: 12.5%;
+}
