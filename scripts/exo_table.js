@@ -25,7 +25,42 @@ function calcAverage() {
     }
 }
 
+// <th className="col-1">
+//     <input type="checkbox">
+// </th>
+function initCheckBoxes(globalSelector = 'all') {
+    const tds = document.querySelectorAll('table tbody tr td:first-child');
+    if (tds) {
+        tds.forEach((element, index) => {
+            element.before(createCheckBoxElement(index+1, 'td'));
+        });
+    }
+    const thead = document.querySelector('table thead tr th:first-child');
+    thead.before(createCheckBoxElement(globalSelector));
+    const checkBoxAll = document.querySelector('[data-checkboxes="'+globalSelector+'"]');
+    if (checkBoxAll) {
+        checkBoxAll.addEventListener('change', () => {
+            const otherChekBoxes = document.querySelectorAll('table tbody tr td input[data-checkboxes]');
+            if (otherChekBoxes) {
+                for (const otherChekBox of otherChekBoxes) {
+                    otherChekBox.checked = checkBoxAll.checked;
+                }
+            }
+        });
+    }
+}
+
+function createCheckBoxElement(dataAttributeValue, element = 'th') {
+    const checkBox = document.createElement('input');
+    checkBox.type = "checkbox";
+    checkBox.setAttribute('data-checkboxes', dataAttributeValue);
+    const tableElement = document.createElement(element);
+    tableElement.className = 'col-1';
+    tableElement.appendChild(checkBox);
+    return tableElement;
+}
 
 window.addEventListener('load', () => {
    calcAverage();
+   initCheckBoxes();
 });
