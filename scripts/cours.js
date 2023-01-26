@@ -147,7 +147,7 @@ students['Michel'] = [14, 13, 12, 11, 10];
 
 
 function initBtn() {
-    const myBtn = document.querySelector('.btn.btn-primary');
+    const myBtn = document.querySelector('a.btn.btn-primary');
     if (myBtn) {
         myBtn.addEventListener('click', () => {
             myTitle.classList.toggle('text-danger'); // Ajoute la classe css 'text-danger' sur la bal
@@ -158,7 +158,6 @@ function initBtn() {
 function initDarkLightMode() {
     const myBtn = document.querySelector('[data-dark-light]');
     if (myBtn) {
-        console.log(myBtn.getAttribute('data-dark-light'));
         myBtn.addEventListener('click', () => {
             const body = document.querySelector('body');
             if (body) {
@@ -168,7 +167,47 @@ function initDarkLightMode() {
     }
 }
 
+function initCreateTitle() {
+    const myBtn = document.querySelector('[data-create-title]');
+    if (myBtn) {
+        myBtn.addEventListener('click', () => {
+            const hiddenForm = document.createElement('form');
+            hiddenForm.action = '#';
+            hiddenForm.method = 'POST';
+            hiddenForm.classList.add('mt-2');
+
+            const div = document.createElement('div');
+            div.classList.add('row');
+
+            const inputUsername = document.createElement('input');
+            inputUsername.classList.add('form-control');
+            inputUsername.type = 'text';
+            inputUsername.name = 'username';
+            inputUsername.placeholder = 'Username';
+            div.appendChild(inputUsername);
+
+            const inputPassword = document.createElement('input');
+            inputPassword.classList.add('form-control');
+            inputPassword.type = 'password';
+            inputPassword.name = 'password';
+            inputPassword.placeholder = 'Password';
+            div.appendChild(inputPassword);
+
+            const btnSubmit = document.createElement('button');
+            btnSubmit.className = 'btn btn-dark col-3 mx-auto';
+            btnSubmit.innerText = 'Se connecter';
+            div.appendChild(btnSubmit);
+
+            hiddenForm.appendChild(div);
+
+            myBtn.after(hiddenForm);
+        });
+    }
+}
+
+
 window.addEventListener('load', () => {
     initBtn();
     initDarkLightMode();
+    initCreateTitle();
 });
