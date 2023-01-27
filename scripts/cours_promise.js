@@ -1,4 +1,5 @@
 
+
 new Promise((resolve, reject) => {
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = () => {
@@ -17,7 +18,8 @@ new Promise((resolve, reject) => {
     xhr.open('GET', 'https://kaamelott.reiter.tf/quote/random', true);
     xhr.send();
 }).then((value) => {
-    console.log(value.citation);
+    console.log(value);
 }).catch((value) => {
     console.log(value[0] + ' : ' + value[1]);
 });
+
